@@ -9,6 +9,9 @@ public class CameraController : MonoBehaviour
     [SerializeField] float minZoom = 2f;
     [SerializeField] float maxZoom = 10f;
 
+    [SerializeField] float mouseSpeed = 10f;
+    [SerializeField] float keySpeed = 10f;
+
     void Start()
     {
         // Cursor.lockState = CursorLockMode.Confined;
@@ -39,38 +42,38 @@ public class CameraController : MonoBehaviour
     void ControlCameraWithMouse(){
         if (Input.mousePosition.x > Screen.width - 10)
         {
-            transform.position += new Vector3(1, 0, 0) * Time.deltaTime * 10;
+            transform.position += new Vector3(1, 0, 0) * Time.deltaTime * mouseSpeed;
         }
         if (Input.mousePosition.x < 10)
         {
-            transform.position += new Vector3(-1, 0, 0) * Time.deltaTime * 10;
+            transform.position += new Vector3(-1, 0, 0) * Time.deltaTime * mouseSpeed;
         }
         if (Input.mousePosition.y > Screen.height - 10)
         {
-            transform.position += new Vector3(0, 0, 1) * Time.deltaTime * 10;
+            transform.position += new Vector3(0, 0, 1) * Time.deltaTime * mouseSpeed;
         }
         if (Input.mousePosition.y < 10)
         {
-            transform.position += new Vector3(0, 0, -1) * Time.deltaTime * 10;
+            transform.position += new Vector3(0, 0, -1) * Time.deltaTime * mouseSpeed;
         }
     }
 
     void ControlCameraWithKeyboard(){
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            transform.position += new Vector3(0, 0, 1) * Time.deltaTime * 10;
+            transform.position += new Vector3(0, 0, 1) * Time.deltaTime * keySpeed;
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            transform.position += new Vector3(0, 0, -1) * Time.deltaTime * 10;
+            transform.position += new Vector3(0, 0, -1) * Time.deltaTime * keySpeed;
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.position += new Vector3(-1, 0, 0) * Time.deltaTime * 10;
+            transform.position += new Vector3(-1, 0, 0) * Time.deltaTime * keySpeed;
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            transform.position += new Vector3(1, 0, 0) * Time.deltaTime * 10;
+            transform.position += new Vector3(1, 0, 0) * Time.deltaTime * keySpeed;
         }
     }
 }
